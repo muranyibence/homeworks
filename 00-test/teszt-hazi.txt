@@ -1,2 +1,3 @@
 Ez egy teszt házi.
+newline
 Hozzáadtam valamit.
