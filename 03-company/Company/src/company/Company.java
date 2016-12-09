@@ -119,13 +119,12 @@ public class Company {
 
     public void giveSalaryAll() {
 
-        for (Iterator<Boss> i = bosses.iterator(); i.hasNext();) {
-            Boss boss = i.next();
+        for (Boss boss: bosses) {
+           
             giveSalary(boss);
         }
 
-        for (Iterator<Worker> i = workers.iterator(); i.hasNext();) {
-            Worker worker = i.next();
+        for (Worker worker: workers) {
             giveSalary(worker);
         }
     }
