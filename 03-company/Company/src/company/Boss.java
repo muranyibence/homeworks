@@ -14,7 +14,7 @@ import java.util.Date;
  */
 public class Boss extends Person {
 
-    public Boss(String name, Time born, Util.Sex sex, int money, int value) {
+    public Boss(String name, Time born, Sex sex, int money, int value) {
         super(name, born, sex, money, value);
     }
 

@@ -6,7 +6,6 @@
 package company;
 
 import java.sql.Time;
-import company.Util.Sex;
 
 /**
  *
@@ -20,6 +19,10 @@ public abstract class Person {
     private int payment;
     private int money;
     private int value; //a személy munkaértéke, ennyi pénzt kap a cég, ha dolgozik nála
+
+    public enum Sex {
+        MALE, FEMALE
+    };
 
     public Person(String name, Time born, Sex sex, int payment, int value, int money) {
         this.name = name;

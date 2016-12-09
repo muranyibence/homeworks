@@ -5,6 +5,7 @@
  */
 package company;
 
+import java.sql.Time;
 import java.util.Date;
 
 /**
@@ -13,7 +14,7 @@ import java.util.Date;
  */
 public class Worker extends Person {
 
-    public Worker(String name, Date born, Util.Sex sex, int money, int value) {
+    public Worker(String name, Time born, Sex sex, int money, int value) {
         super(name, born, sex, money, value);
     }
 
