@@ -5,6 +5,7 @@
  */
 package company;
 
+import java.sql.Time;
 import java.util.Date;
 
 /**
@@ -22,12 +23,12 @@ public class Main {
         Company c1 = new Company("Budapest Ferenc Körút 40.", 1000, "Cég1");
         Company c2 = new Company("Budapest Ferenc Körút 41.", 50, "Cég2");
 
-        Worker w1 = new Worker("Dolgozó1", new Date(1987, 11, 3), Util.Sex.MALE, 0, 100);
-        Worker w2 = new Worker("Dolgozó2", new Date(1986, 8, 11), Util.Sex.FEMALE, 50, 80);
-        Worker w3 = new Worker("Dolgozó1", new Date(1982, 1, 5), Util.Sex.MALE, 0, 110);
+        Worker w1 = new Worker("Dolgozó1", new Time(1987, 11, 3), Util.Sex.MALE, 0, 100);
+        Worker w2 = new Worker("Dolgozó2", new Time(1986, 8, 11), Util.Sex.FEMALE, 50, 80);
+        Worker w3 = new Worker("Dolgozó1", new Time(1982, 1, 5), Util.Sex.MALE, 0, 110);
 
-        Boss b1 = new Boss("Boss1", new Date(1966, 2, 5), Util.Sex.MALE, 400, 200);
-        Boss b2 = new Boss("Boss2", new Date(1982, 6, 11), Util.Sex.FEMALE, 300, 220);
+        Boss b1 = new Boss("Boss1", new Time(1966, 2, 5), Util.Sex.MALE, 400, 200);
+        Boss b2 = new Boss("Boss2", new Time(1982, 6, 11), Util.Sex.FEMALE, 300, 220);
         //munkások hozzáadása
         c1.addWorker(w1);
         c1.addWorker(w2);

@@ -5,7 +5,7 @@
  */
 package company;
 
-import java.util.Date;
+import java.sql.Time;
 import company.Util.Sex;
 
 /**
@@ -15,13 +15,13 @@ import company.Util.Sex;
 public abstract class Person {
 
     private String name;
-    private Date born;
+    private Time born;
     private Sex sex;
     private int payment;
     private int money;
     private int value; //a személy munkaértéke, ennyi pénzt kap a cég, ha dolgozik nála
 
-    public Person(String name, Date born, Sex sex, int payment, int value, int money) {
+    public Person(String name, Time born, Sex sex, int payment, int value, int money) {
         this.name = name;
         this.born = born;
         this.sex = sex;
@@ -30,7 +30,7 @@ public abstract class Person {
         this.money = money;
     }
 
-    public Person(String name, Date born, Sex sex, int payment, int value) {
+    public Person(String name, Time born, Sex sex, int payment, int value) {
         this.name = name;
         this.born = born;
         this.sex = sex;
@@ -59,7 +59,7 @@ public abstract class Person {
         this.money = money;
     }
 
-    public void setBorn(Date born) {
+    public void setBorn(Time born) {
         this.born = born;
     }
 
@@ -75,7 +75,7 @@ public abstract class Person {
         return name;
     }
 
-    public Date getBorn() {
+    public Time getBorn() {
         return born;
     }
 
