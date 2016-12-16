@@ -15,8 +15,8 @@ public class Book extends PrintedMedia {
     
     Person author;
 
-    public Book(Person author, String title, int ISBN) {
-        super(title, ISBN);
+    public Book(Person author, String title, int isbn) {
+        super(title, isbn);
         this.author = author;
     }
 

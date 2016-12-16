@@ -7,24 +7,19 @@ package com.muranyibence.library;
 
 import java.sql.Date;
 
-
 /**
  *
  * @author Bence
  */
 public class Person {
 
-    public Person(String author1, Date date) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-public enum Gender {
-    MALE, FEMALE
-}
-
     private String name;
     private Date born;
     private Gender gender;
+
+    public enum Gender {
+        MALE, FEMALE
+    }
 
     public Person(String name, Date born, Gender gender) {
         this.name = name;
@@ -32,9 +27,6 @@ public enum Gender {
         this.gender = gender;
 
     }
-
-
-
 
     public void setGender(Gender gender) {
         this.gender = gender;
@@ -60,5 +52,4 @@ public enum Gender {
         return born;
     }
 
-   
 }

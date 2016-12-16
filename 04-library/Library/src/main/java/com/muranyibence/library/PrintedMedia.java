@@ -14,11 +14,11 @@ import java.util.Objects;
 public class PrintedMedia {
 
     String title;
-    int ISBN;
+    int isbn;
 
-    public PrintedMedia(String title, int ISBN) {
+    public PrintedMedia(String title, int isbn) {
         this.title = title;
-        this.ISBN = ISBN;
+        this.isbn = isbn;
     }
 
 
@@ -27,23 +27,23 @@ public class PrintedMedia {
         return title;
     }
 
-    public int getISBN() {
-        return ISBN;
+    public int getIsbn() {
+        return isbn;
     }
 
     public void setTitle(String title) {
         this.title = title;
     }
 
-    public void setISBN(int ISBN) {
-        this.ISBN = ISBN;
+    public void setIsbn(int isbn) {
+        this.isbn = isbn;
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
         hash = 97 * hash + Objects.hashCode(this.title);
-        hash = 97 * hash + Objects.hashCode(this.ISBN);
+        hash = 97 * hash + Objects.hashCode(this.isbn);
         return hash;
     }
 
@@ -62,7 +62,7 @@ public class PrintedMedia {
         if (!Objects.equals(this.title, other.title)) {
             return false;
         }
-        if (!Objects.equals(this.ISBN, other.ISBN)) {
+        if (!Objects.equals(this.isbn, other.isbn)) {
             return false;
         }
         return true;

@@ -15,8 +15,8 @@ import java.util.Objects;
 public class Journal extends PrintedMedia {
     Date release;
 
-    public Journal(Date release, String title, int ISBN) {
-        super(title, ISBN);
+    public Journal(Date release, String title, int isbn) {
+        super(title, isbn);
         this.release = release;
     }
 
