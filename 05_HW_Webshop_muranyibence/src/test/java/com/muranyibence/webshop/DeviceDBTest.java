@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.muranyibence.webshop;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.UUID;
-import javax.validation.Validation;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -55,7 +48,7 @@ public class DeviceDBTest {
         Assert.assertEquals("Iphone 6", device1.getType());
     }
 
-    @Test(expected = NoSuchElementException.class)
+    @Test(expected = DeviceNotExistInDBException.class)
     public void deleteDevice() {
 
         deviceDB = new DeviceDB();

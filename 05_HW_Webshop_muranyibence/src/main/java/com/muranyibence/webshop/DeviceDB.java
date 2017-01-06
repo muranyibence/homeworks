@@ -1,15 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.muranyibence.webshop;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -19,9 +13,13 @@ import java.util.UUID;
  */
 public class DeviceDB {
 
+    private static final String DEVICE = "Device ";
     private Map<String, DeviceEntity> devices = new HashMap<>();
 
     public DeviceEntity addDevice(DeviceEntity device) {
+        if (devices.containsKey(device.getId())) {
+            throw new DeviceAlreadyInDBException(new String(DEVICE + device.getId() + " is already in database"));
+        }
         String id = UUID.randomUUID().toString();
         device.setId(id);
         device.setCount(0);
@@ -31,14 +29,14 @@ public class DeviceDB {
 
     public DeviceEntity getDevice(String id) {
         if (devices.get(id) == null) {
-            throw new NoSuchElementException("There is no device with this id on the datatbase");
+            throw new DeviceNotExistInDBException(new String(DEVICE + id + " doesnt exist in database"));
         }
         return devices.get(id);
     }
 
     public DeviceEntity editDevice(DeviceEntity device) {
         if (devices.get(device.getId()) == null) {
-            throw new NoSuchElementException("There is no device with this id on the datatbase");
+            throw new DeviceNotExistInDBException(new String(DEVICE + device.getId() + " doesnt exist in database"));
         }
         this.devices.put(device.getId(), device);
         return getDevice(device.getId());
@@ -80,6 +78,5 @@ public class DeviceDB {
         }
         return true;
     }
-    
-    
+
 }

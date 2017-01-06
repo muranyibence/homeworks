@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.muranyibence.webshop;
 
 import java.util.Calendar;
@@ -89,7 +84,10 @@ public class UserEntityTest {
                 .admin(true)
                 .build();
         Set<ConstraintViolation<UserEntity>> violations = validator.validate(userEntity);
+
         Assert.assertEquals(1, violations.size());
+        Assert.assertEquals("{javax.validation.constraints.NotNull.message}", violations.iterator().next().getMessageTemplate());
+
     }
 
     @Test
@@ -136,6 +134,8 @@ public class UserEntityTest {
                 .build();
         Set<ConstraintViolation<UserEntity>> violations = validator.validate(userEntity);
         Assert.assertEquals(1, violations.size());
+        Assert.assertEquals("{javax.validation.constraints.Size.message}", violations.iterator().next().getMessageTemplate());
+
     }
 
     @Test
@@ -182,6 +182,8 @@ public class UserEntityTest {
                 .build();
         Set<ConstraintViolation<UserEntity>> violations = validator.validate(userEntity);
         Assert.assertEquals(1, violations.size());
+        Assert.assertEquals("{javax.validation.constraints.NotNull.message}", violations.iterator().next().getMessageTemplate());
+
     }
 
     @Test
@@ -228,6 +230,8 @@ public class UserEntityTest {
                 .build();
         Set<ConstraintViolation<UserEntity>> violations = validator.validate(userEntity);
         Assert.assertEquals(1, violations.size());
+        Assert.assertEquals("{javax.validation.constraints.Size.message}", violations.iterator().next().getMessageTemplate());
+
     }
 
     @Test
@@ -320,6 +324,8 @@ public class UserEntityTest {
                 .build();
         Set<ConstraintViolation<UserEntity>> violations = validator.validate(userEntity);
         Assert.assertEquals(1, violations.size());
+        Assert.assertEquals("{Address.message}", violations.iterator().next().getMessageTemplate());
+
     }
 
     @Test
@@ -366,6 +372,8 @@ public class UserEntityTest {
                 .build();
         Set<ConstraintViolation<UserEntity>> violations = validator.validate(userEntity);
         Assert.assertEquals(1, violations.size());
+        Assert.assertEquals("Phone should start with +36 or 06, then followed by 9 number", violations.iterator().next().getMessageTemplate());
+
     }
 
     @Test
@@ -412,6 +420,8 @@ public class UserEntityTest {
                 .build();
         Set<ConstraintViolation<UserEntity>> violations = validator.validate(userEntity);
         Assert.assertEquals(1, violations.size());
+        Assert.assertEquals("email format", violations.iterator().next().getMessageTemplate());
+
     }
 
     @Test
@@ -459,8 +469,9 @@ public class UserEntityTest {
                 .admin(true)
                 .build();
         Set<ConstraintViolation<UserEntity>> violations = validator.validate(userEntity);
-        System.out.println(violations.toString());
         Assert.assertEquals(1, violations.size());
+        Assert.assertEquals("{javax.validation.constraints.Past.message}", violations.iterator().next().getMessageTemplate());
+
     }
 
     @Test
@@ -508,8 +519,9 @@ public class UserEntityTest {
                 .admin(true)
                 .build();
         Set<ConstraintViolation<UserEntity>> violations = validator.validate(userEntity);
-        System.out.println(violations.toString());
         Assert.assertEquals(1, violations.size());
+        Assert.assertEquals("{javax.validation.constraints.Past.message}", violations.iterator().next().getMessageTemplate());
+
     }
 
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.muranyibence.webshop;
 
 import com.muranyibence.webshop.constraints.Address;
@@ -30,23 +25,19 @@ public class UserEntity {
     @NotNull
     @Size(min = 6)
     @Pattern.List({
-        @Pattern(regexp = ".*[a-z].*")
-        ,
-        @Pattern(regexp = ".*[A-Z].*")
-        ,
-        @Pattern(regexp = ".*[0-9].*")
-        ,
-        @Pattern(regexp = ".*[=+<>.,].*")
-    })
+        @Pattern(regexp = ".*[a-z].*"),
+        @Pattern(regexp = ".*[A-Z].*"),
+        @Pattern(regexp = ".*[0-9].*"),
+        @Pattern(regexp = ".*[=+<>.,].*")})
     private String password;
     private String firstname;
     private String lastname;
     @Address
     private String address;
-    @Pattern(regexp = "^(06|\\+36)\\d{9}")
+    @Pattern(regexp = "^(06|\\+36)\\d{9}", message="Phone should start with +36 or 06, then followed by 9 number")
     private String phone;
     @NotNull
-    @Pattern(regexp = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z-.]+$")
+    @Pattern(regexp = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z-.]+$", message="email format")
     private String email;
     private Sex sex;
     @NotNull

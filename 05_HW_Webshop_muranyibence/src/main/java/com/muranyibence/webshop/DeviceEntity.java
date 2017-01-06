@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.muranyibence.webshop;
 
 import com.muranyibence.webshop.constraints.DeviceColor;
@@ -20,20 +15,20 @@ public class DeviceEntity {
 
     @NotNull
     @Size(min = 36, max = 36)
-    String id;
+    private String id;
     @NotNull
     @Size(min = 3)
-    String type;
+    private String type;
     @NotNull
-    Manufacturer manufacturer;
-    @NotNull
-    @DecimalMin("0")
-    int price;
-    @NotNull
-    Color color;
+    private Manufacturer manufacturer;
     @NotNull
     @DecimalMin("0")
-    Integer count;
+    private int price;
+    @NotNull
+    private Color color;
+    @NotNull
+    @DecimalMin("0")
+    private Integer count;
 
     public DeviceEntity(String id, String type, Manufacturer manufacturer, int price, Color color, Integer count) {
         this.id = id;

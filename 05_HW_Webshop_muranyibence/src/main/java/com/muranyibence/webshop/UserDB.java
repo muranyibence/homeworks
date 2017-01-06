@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.muranyibence.webshop;
 
 import java.util.ArrayList;
@@ -10,7 +5,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.NoSuchElementException;
 import java.util.Objects;
 
 /**
@@ -19,7 +13,7 @@ import java.util.Objects;
  */
 public class UserDB {
 
-    private static final String NOUSER = "There is no user with this name on the database";
+    private static final String NOUSER = "There is no user with this name on the database: ";
     private Map<String, UserEntity> users = new HashMap<>();
 
     public UserDB() {
@@ -27,6 +21,9 @@ public class UserDB {
     }
 
     public UserEntity addUser(UserEntity user) {
+        if (users.containsKey(user.getUsername())) {
+            throw new UserAlreadyInDBException(new String("User " + user.getUsername() + " is already in database"));
+        }
         Date date = new Date();
         user.setRegistrationDate(date);
         user.setLastModifiedDate(date);
@@ -37,7 +34,7 @@ public class UserDB {
 
     public UserEntity getUser(String username) {
         if (users.get(username) == null) {
-            throw new NoSuchElementException(NOUSER);
+            throw new UserNotExistInDBException(NOUSER + username);
         }
         return users.get(username);
 
@@ -54,7 +51,7 @@ public class UserDB {
 
     public UserEntity modifyUser(UserEntity user) {
         if (users.get(user.getUsername()) == null) {
-            throw new NoSuchElementException(NOUSER);
+            throw new UserNotExistInDBException(NOUSER + user.getUsername());
         }
         UserEntity userToModify = getUser(user.getUsername());
 
@@ -65,11 +62,9 @@ public class UserDB {
 
     public UserEntity deleteUser(UserEntity user) {
         if (users.get(user.getUsername()) == null) {
-            throw new NoSuchElementException(NOUSER);
+            throw new UserNotExistInDBException(NOUSER + user.getUsername());
         }
-
-        users.remove(user.getUsername());
-        return user;
+        return users.remove(user.getUsername());
     }
 
     public List<UserEntity> getAllUser() {
@@ -102,7 +97,5 @@ public class UserDB {
         }
         return true;
     }
-
- 
 
 }

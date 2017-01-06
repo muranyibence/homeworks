@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.muranyibence.webshop.constraints;
 
 import com.muranyibence.webshop.UserEntity;
@@ -21,8 +16,11 @@ public class DateOfBirthBeforeRegistrationDateValidator implements ConstraintVal
     }
 
     @Override
-    public boolean isValid(UserEntity t, ConstraintValidatorContext cvc) {
-        if (t.getDateOfBirth().before(t.getRegistrationDate())) {
+    public boolean isValid(UserEntity user, ConstraintValidatorContext cvc) {
+        if (user.getDateOfBirth() == null) {
+            return true;
+        }
+        if (user.getDateOfBirth().before(user.getRegistrationDate())) {
             return true;
         }
         return false;

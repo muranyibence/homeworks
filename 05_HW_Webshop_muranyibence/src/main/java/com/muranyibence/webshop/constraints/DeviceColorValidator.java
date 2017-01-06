@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.muranyibence.webshop.constraints;
 
 import com.muranyibence.webshop.Color;
@@ -23,13 +18,13 @@ public class DeviceColorValidator implements ConstraintValidator<DeviceColor, De
     }
 
     @Override
-    public boolean isValid(DeviceEntity t, ConstraintValidatorContext cvc) {
-
-        if (t.getManufacturer() == Manufacturer.APPLE && (t.getColor() != Color.WHITE && t.getColor() != Color.BLACK)) {
-            return false;
-        } else if (t.getManufacturer() == Manufacturer.SAMSUNG && t.getColor() == Color.GREEN) {
+    public boolean isValid(DeviceEntity device, ConstraintValidatorContext cvc) {
+        boolean applenotblackorwhite = device.getManufacturer() == Manufacturer.APPLE && !(device.getColor() == Color.WHITE || device.getColor() == Color.BLACK);
+        boolean samsunggreen = device.getManufacturer() == Manufacturer.SAMSUNG && device.getColor() == Color.GREEN;
+        if (applenotblackorwhite || samsunggreen) {
             return false;
         }
         return true;
+
     }
 }

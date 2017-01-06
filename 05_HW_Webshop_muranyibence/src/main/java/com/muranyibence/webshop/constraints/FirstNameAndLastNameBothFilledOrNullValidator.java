@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.muranyibence.webshop.constraints;
 
 import com.muranyibence.webshop.UserEntity;
@@ -21,11 +16,10 @@ public class FirstNameAndLastNameBothFilledOrNullValidator implements Constraint
     }
 
     @Override
-    public boolean isValid(UserEntity t, ConstraintValidatorContext cvc) {
-        if ((t.getFirstname() == null && t.getLastname() == null) || (t.getFirstname() != null && t.getLastname() != null)) {
-            return true;
-        }
-        return false;
+    public boolean isValid(UserEntity user, ConstraintValidatorContext cvc) {
+        boolean isBothNull = user.getFirstname() == null && user.getLastname() == null;
+        boolean isBothFilled = user.getFirstname() != null && user.getLastname() != null;
+        return isBothNull || isBothFilled;
     }
 
 }

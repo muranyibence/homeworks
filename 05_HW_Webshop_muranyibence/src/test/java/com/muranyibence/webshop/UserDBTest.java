@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.muranyibence.webshop;
 
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.NoSuchElementException;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -102,8 +96,8 @@ public class UserDBTest {
         Assert.assertEquals(user2.getLastname(), "User2");
     }
 
-    @Test(expected = NoSuchElementException.class)
-    public void removeUser() {
+    @Test(expected = UserNotExistInDBException.class)
+    public void testRemoveUser() {
         userDB = new UserDB();
 
         Date registrationDate = getRelativeDate(-1);
@@ -129,7 +123,7 @@ public class UserDBTest {
     }
 
     @Test
-    public void getAllUser() {
+    public void testGetAllUser() {
         userDB = new UserDB();
 
         Date registrationDate = getRelativeDate(-1);
