@@ -19,9 +19,9 @@ public class DeviceColorValidator implements ConstraintValidator<DeviceColor, De
 
     @Override
     public boolean isValid(DeviceEntity device, ConstraintValidatorContext cvc) {
-        boolean applenotblackorwhite = device.getManufacturer() == Manufacturer.APPLE && !(device.getColor() == Color.WHITE || device.getColor() == Color.BLACK);
-        boolean samsunggreen = device.getManufacturer() == Manufacturer.SAMSUNG && device.getColor() == Color.GREEN;
-        if (applenotblackorwhite || samsunggreen) {
+        boolean appleNotBlackOrWhite = device.getManufacturer() == Manufacturer.APPLE && !(device.getColor() == Color.WHITE || device.getColor() == Color.BLACK);
+        boolean samsungGreen = device.getManufacturer() == Manufacturer.SAMSUNG && device.getColor() == Color.GREEN;
+        if (appleNotBlackOrWhite || samsungGreen) {
             return false;
         }
         return true;
