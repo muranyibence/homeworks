@@ -1,11 +1,11 @@
 
-package com.muranyibence.webshop;
+package com.muranyibence.webshop.exceptions;
 
 /**
  *
  * @author Bence
  */
-class UserAlreadyInDBException extends RuntimeException {
+public class UserAlreadyInDBException extends RuntimeException {
 
     public UserAlreadyInDBException() {
         //empty

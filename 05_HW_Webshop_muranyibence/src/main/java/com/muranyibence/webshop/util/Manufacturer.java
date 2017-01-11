@@ -1,4 +1,4 @@
-package com.muranyibence.webshop;
+package com.muranyibence.webshop.util;
 
 /**
  *

@@ -1,5 +1,7 @@
-package com.muranyibence.webshop;
+package com.muranyibence.webshop.entites;
 
+import com.muranyibence.webshop.util.Sex;
+import com.muranyibence.webshop.annotations.Validate;
 import com.muranyibence.webshop.constraints.Address;
 import com.muranyibence.webshop.constraints.DateOfBirthBeforeRegistrationDate;
 import com.muranyibence.webshop.constraints.FirstNameAndLastNameBothFilledOrNull;
@@ -17,6 +19,7 @@ import javax.validation.constraints.Size;
  */
 @FirstNameAndLastNameBothFilledOrNull
 @DateOfBirthBeforeRegistrationDate
+@Validate
 public class UserEntity {
 
     @NotNull

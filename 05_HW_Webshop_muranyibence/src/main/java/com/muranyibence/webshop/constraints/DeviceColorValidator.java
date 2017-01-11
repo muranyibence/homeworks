@@ -1,8 +1,8 @@
 package com.muranyibence.webshop.constraints;
 
-import com.muranyibence.webshop.Color;
-import com.muranyibence.webshop.DeviceEntity;
-import com.muranyibence.webshop.Manufacturer;
+import com.muranyibence.webshop.util.Color;
+import com.muranyibence.webshop.entites.DeviceEntity;
+import com.muranyibence.webshop.util.Manufacturer;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 

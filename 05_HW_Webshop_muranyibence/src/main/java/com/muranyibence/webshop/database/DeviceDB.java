@@ -1,21 +1,44 @@
-package com.muranyibence.webshop;
+package com.muranyibence.webshop.database;
 
+import com.muranyibence.webshop.exceptions.DeviceAlreadyInDBException;
+import com.muranyibence.webshop.entites.DeviceEntity;
+import com.muranyibence.webshop.exceptions.DeviceNotExistInDBException;
+import com.muranyibence.webshop.exceptions.NotEnoughCountInDBException;
+import com.muranyibence.webshop.interceptors.ValidatorInterceptor;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
+import javax.interceptor.ExcludeClassInterceptors;
+import javax.interceptor.Interceptors;
 
 /**
  *
  * @author Bence
  */
+@Interceptors(ValidatorInterceptor.class)
 public class DeviceDB {
 
+    private static DeviceDB instance = null;
     private static final String DEVICE = "Device ";
+    private static final String NOT_EXIST=" doesnt exist in database";
     private Map<String, DeviceEntity> devices = new HashMap<>();
 
+
+    protected DeviceDB() {
+        // Exists only to defeat instantiation.
+    }
+
+    public static DeviceDB getInstance() {
+        if (instance == null) {
+            instance = new DeviceDB();
+        }
+        return instance;
+    }
+
+    @ExcludeClassInterceptors
     public DeviceEntity addDevice(DeviceEntity device) {
         if (devices.containsKey(device.getId())) {
             throw new DeviceAlreadyInDBException(new String(DEVICE + device.getId() + " is already in database"));
@@ -29,9 +52,30 @@ public class DeviceDB {
 
     public DeviceEntity getDevice(String id) {
         if (devices.get(id) == null) {
-            throw new DeviceNotExistInDBException(new String(DEVICE + id + " doesnt exist in database"));
+            throw new DeviceNotExistInDBException(DEVICE + id + NOT_EXIST);
         }
         return devices.get(id);
+    }
+
+    public void addExistingDevice(String id, int count) {
+        if (devices.get(id) == null) {
+            throw new DeviceNotExistInDBException(DEVICE + id + NOT_EXIST);
+        }
+          devices.get(id).setCount(devices.get(id).getCount()+count);
+
+    }
+
+    public DeviceEntity takeDevice(String id, int count) {
+        if (devices.get(id) == null) {
+            throw new DeviceNotExistInDBException(new String(DEVICE + id + NOT_EXIST));
+        } else if (devices.get(id).getCount() < count) {
+            throw new NotEnoughCountInDBException(new String("There is only " + devices.get(id).getCount().toString() + id + " device in the database"));
+        }
+        DeviceEntity deviceToTake = devices.get(id);
+        DeviceEntity entity = new DeviceEntity(deviceToTake);
+        entity.setCount(count);
+        deviceToTake.setCount(deviceToTake.getCount() - count);
+        return entity;
     }
 
     public DeviceEntity editDevice(DeviceEntity device) {

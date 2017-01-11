@@ -1,16 +1,23 @@
-package com.muranyibence.webshop;
+package com.muranyibence.webshop.database;
 
+import com.muranyibence.webshop.exceptions.UserAlreadyInDBException;
+import com.muranyibence.webshop.entites.UserEntity;
+import com.muranyibence.webshop.exceptions.UserNotExistInDBException;
+import com.muranyibence.webshop.interceptors.ValidatorInterceptor;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import javax.interceptor.ExcludeClassInterceptors;
+import javax.interceptor.Interceptors;
 
 /**
  *
  * @author Bence
  */
+@Interceptors(ValidatorInterceptor.class)
 public class UserDB {
 
     private static final String NOUSER = "There is no user with this name on the database: ";
@@ -20,6 +27,7 @@ public class UserDB {
         //empty constructor
     }
 
+   @ExcludeClassInterceptors
     public UserEntity addUser(UserEntity user) {
         if (users.containsKey(user.getUsername())) {
             throw new UserAlreadyInDBException(new String("User " + user.getUsername() + " is already in database"));

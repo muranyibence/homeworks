@@ -1,10 +1,10 @@
-package com.muranyibence.webshop;
+package com.muranyibence.webshop.exceptions;
 
 /**
  *
  * @author Bence
  */
-class DeviceAlreadyInDBException extends RuntimeException {
+public class DeviceAlreadyInDBException extends RuntimeException {
 
     public DeviceAlreadyInDBException() {
         //empty

@@ -1,5 +1,10 @@
 package com.muranyibence.webshop;
 
+import com.muranyibence.webshop.util.Manufacturer;
+import com.muranyibence.webshop.util.Color;
+import com.muranyibence.webshop.entites.DeviceEntity;
+import com.muranyibence.webshop.exceptions.DeviceNotExistInDBException;
+import com.muranyibence.webshop.database.DeviceDB;
 import java.util.List;
 import java.util.UUID;
 import org.junit.Assert;
@@ -29,7 +34,7 @@ public class DeviceDBTest {
     @Test
     public void addDevice() {
 
-        deviceDB = new DeviceDB();
+        deviceDB = DeviceDB.getInstance();
         deviceEntity = new DeviceEntity(UUID.randomUUID().toString(), "Iphone 7", Manufacturer.APPLE, 0, Color.BLACK, 0);
         DeviceEntity addedDevice = deviceDB.addDevice(deviceEntity);
         Boolean isAddedDevice = deviceDB.getDevice(addedDevice.getId()) != null;
@@ -39,7 +44,7 @@ public class DeviceDBTest {
     @Test
     public void editDevice() {
 
-        deviceDB = new DeviceDB();
+          deviceDB = DeviceDB.getInstance();
 
         deviceEntity = new DeviceEntity(id, "Iphone 7", Manufacturer.APPLE, 0, Color.BLACK, 0);
         deviceDB.addDevice(deviceEntity);
@@ -51,7 +56,7 @@ public class DeviceDBTest {
     @Test(expected = DeviceNotExistInDBException.class)
     public void deleteDevice() {
 
-        deviceDB = new DeviceDB();
+       deviceDB = DeviceDB.getInstance();
         deviceEntity = new DeviceEntity(id, "Iphone 7", Manufacturer.APPLE, 0, Color.BLACK, 0);
         DeviceEntity addedDevice = deviceDB.addDevice(deviceEntity);
         DeviceEntity deletedDevice = deviceDB.deleteDevice(addedDevice);
@@ -61,7 +66,7 @@ public class DeviceDBTest {
     @Test
     public void getAllDevice() {
 
-        deviceDB = new DeviceDB();
+        deviceDB = DeviceDB.getInstance();
         deviceEntity = new DeviceEntity(id, "Iphone 7", Manufacturer.APPLE, 0, Color.BLACK, 0);
         deviceEntity2 = new DeviceEntity(UUID.randomUUID().toString(), "Iphone 8", Manufacturer.APPLE, 0, Color.BLACK, 0);
         deviceDB.addDevice(deviceEntity);

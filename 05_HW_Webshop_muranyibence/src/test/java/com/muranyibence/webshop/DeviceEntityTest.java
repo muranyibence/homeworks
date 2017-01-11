@@ -4,6 +4,9 @@ package com.muranyibence.webshop;
  *
  * @author Bence
  */
+import com.muranyibence.webshop.util.Manufacturer;
+import com.muranyibence.webshop.util.Color;
+import com.muranyibence.webshop.entites.DeviceEntity;
 import java.util.Set;
 import java.util.UUID;
 import javax.validation.ConstraintViolation;

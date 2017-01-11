@@ -1,5 +1,8 @@
-package com.muranyibence.webshop;
+package com.muranyibence.webshop.entites;
 
+import com.muranyibence.webshop.util.Color;
+import com.muranyibence.webshop.util.Manufacturer;
+import com.muranyibence.webshop.annotations.Validate;
 import com.muranyibence.webshop.constraints.DeviceColor;
 import java.util.Objects;
 import javax.validation.constraints.DecimalMin;
@@ -11,6 +14,7 @@ import javax.validation.constraints.Size;
  * @author Bence
  */
 @DeviceColor
+@Validate
 public class DeviceEntity {
 
     @NotNull
@@ -39,10 +43,18 @@ public class DeviceEntity {
         this.count = count;
     }
 
+    public DeviceEntity(DeviceEntity device) {
+        this.id = device.id;
+        this.type = device.type;
+        this.manufacturer = device.manufacturer;
+        this.price = device.price;
+        this.color = device.color;
+        this.count = device.count;
+    }
+
     public DeviceEntity() {
         //empty constructor
     }
-    
 
     public String getId() {
         return id;
@@ -115,5 +127,5 @@ public class DeviceEntity {
             return false;
         }
         return true;
-    }    
+    }
 }

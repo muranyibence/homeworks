@@ -1,5 +1,7 @@
 package com.muranyibence.webshop;
 
+import com.muranyibence.webshop.util.Sex;
+import com.muranyibence.webshop.entites.UserEntity;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Set;

@@ -1,6 +1,6 @@
 package com.muranyibence.webshop.constraints;
 
-import com.muranyibence.webshop.UserEntity;
+import com.muranyibence.webshop.entites.UserEntity;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
