@@ -1,5 +1,6 @@
 package com.muranyibence.webshop.entites;
 
+import com.muranyibence.webshop.Main;
 import com.muranyibence.webshop.database.DeviceDB;
 import com.muranyibence.webshop.exceptions.NotEnoughCountInDBException;
 import java.util.HashMap;
@@ -43,7 +44,8 @@ public class ShoppingCart {
                 setCost(cost + (device.getPrice() * count));
             }
         } catch (NotEnoughCountInDBException ex) {
-            LOGGER.info((Supplier<String>) ex);
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+
         }
 
     }

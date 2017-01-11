@@ -1,5 +1,6 @@
 package com.muranyibence.webshop.interceptors;
 
+
 import java.util.Optional;
 import java.util.Set;
 import javax.inject.Inject;
@@ -38,10 +39,10 @@ public class ValidatorInterceptor {
     }
 
     private void validateParameters(Object[] parameters) {
-        Validate validate;
+        boolean validate;
         for (Object parameter : parameters) {
-   
-            if (!parameter.getClass().isAnnotationPresent(Validate.class)) {
+            validate = parameter.getClass().isAnnotationPresent(Validate.class);
+            if (validate) {
                 validateBean(parameter);
             }
 }
