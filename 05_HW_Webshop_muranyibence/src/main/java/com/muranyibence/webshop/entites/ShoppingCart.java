@@ -32,7 +32,7 @@ public class ShoppingCart {
 
     public void addDeviceToChart(String id, int count) throws NotEnoughCountInDBException {
         DeviceDB deviceDB = DeviceDB.getInstance();
-        try {
+      
             DeviceEntity device = deviceDB.takeDevice(id, count);
             if (devicesInCart.containsKey(id)) {
                 devicesInCart.get(id).setCount(devicesInCart.get(id).getCount() + count);
@@ -41,10 +41,6 @@ public class ShoppingCart {
                 devicesInCart.put(device.getId(), device);
                 setCost(cost + (device.getPrice() * count));
             }
-        } catch (NotEnoughCountInDBException ex) {
-            throw ex;
-        }
-
     }
 
     public void deleteDeviceFromChart(String id, int count) {
