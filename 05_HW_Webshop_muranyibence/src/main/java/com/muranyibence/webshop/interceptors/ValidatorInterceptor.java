@@ -40,8 +40,8 @@ public class ValidatorInterceptor {
     private void validateParameters(Object[] parameters) {
         Validate validate;
         for (Object parameter : parameters) {
-            validate = parameter.getClass().getAnnotation(Validate.class);
-            if (null != validate) {
+   
+            if (!parameter.getClass().isAnnotationPresent(Validate.class)) {
                 validateBean(parameter);
             }
 }
