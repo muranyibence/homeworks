@@ -12,7 +12,7 @@ import javax.validation.ConstraintValidatorContext;
 public class AddressValidator implements ConstraintValidator<Address, String> {
 
     
-    private static final Pattern REGEXZIP = Pattern.compile("(\\d){4}.*");
+    private static final Pattern REGEX_ZIP = Pattern.compile("(\\d){4}.*");
 
     @Override
     public void initialize(Address a) {
@@ -21,7 +21,7 @@ public class AddressValidator implements ConstraintValidator<Address, String> {
 
     @Override
     public boolean isValid(String address, ConstraintValidatorContext cvc) {
-        Matcher m = REGEXZIP.matcher(address);
+        Matcher m = REGEX_ZIP.matcher(address);
         if ((address == null) || (m.find())) {
             return true;
         }

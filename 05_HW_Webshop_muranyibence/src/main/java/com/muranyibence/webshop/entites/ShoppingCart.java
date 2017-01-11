@@ -1,11 +1,9 @@
 package com.muranyibence.webshop.entites;
 
-import com.muranyibence.webshop.Main;
 import com.muranyibence.webshop.database.DeviceDB;
 import com.muranyibence.webshop.exceptions.NotEnoughCountInDBException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Supplier;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,7 +14,7 @@ import java.util.logging.Logger;
 public class ShoppingCart {
 
     private static final Logger LOGGER = Logger.getLogger(ShoppingCart.class.getName());
-    private Map<String, DeviceEntity> devicesInCart;
+    private final Map<String, DeviceEntity> devicesInCart;
     private int cost;
 
     public ShoppingCart() {
@@ -28,11 +26,11 @@ public class ShoppingCart {
         return cost;
     }
 
-    public void setCost(int cost) {
+    private void setCost(int cost) {
         this.cost = cost;
     }
 
-    public void addDeviceToChart(String id, int count) {
+    public void addDeviceToChart(String id, int count) throws NotEnoughCountInDBException {
         DeviceDB deviceDB = DeviceDB.getInstance();
         try {
             DeviceEntity device = deviceDB.takeDevice(id, count);
@@ -44,8 +42,7 @@ public class ShoppingCart {
                 setCost(cost + (device.getPrice() * count));
             }
         } catch (NotEnoughCountInDBException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-
+            throw ex;
         }
 
     }

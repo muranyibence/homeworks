@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
 
 /**
  *
- * @author Denes Laszlo <denes.laszlo.88@gmail.com>
+ * @author Bence
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)

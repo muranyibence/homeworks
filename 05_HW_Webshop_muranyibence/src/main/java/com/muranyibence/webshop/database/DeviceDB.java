@@ -65,7 +65,7 @@ public class DeviceDB {
 
     }
 
-    public DeviceEntity takeDevice(String id, int count) {
+    public DeviceEntity takeDevice(String id, int count) throws NotEnoughCountInDBException {
         if (devices.get(id) == null) {
             throw new DeviceNotExistInDBException(new String(DEVICE + id + NOT_EXIST));
         } else if (devices.get(id).getCount() < count) {

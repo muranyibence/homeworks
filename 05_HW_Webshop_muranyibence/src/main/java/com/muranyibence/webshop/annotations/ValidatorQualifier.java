@@ -8,7 +8,7 @@ import javax.inject.Qualifier;
 
 /**
  *
- * @author Denes Laszlo <denes.laszlo.88@gmail.com>
+ * @author Bence
  */
 @Qualifier
 @Target({ElementType.METHOD, ElementType.FIELD})
