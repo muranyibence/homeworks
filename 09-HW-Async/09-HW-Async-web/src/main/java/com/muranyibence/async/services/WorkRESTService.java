@@ -29,6 +29,7 @@ public class WorkRESTService {
     private AsyncDemonstrator asyncDemonstrator = new AsyncDemonstrator();
     private Future<String> result;
     private String resultString;
+    private static final Logger LOGGER = Logger.getLogger(WorkRESTService.class.getName());
 
     /**
      * URL:
@@ -53,6 +54,7 @@ public class WorkRESTService {
     @GET
     public String futureDemonstrator() {
         result = asyncDemonstrator.workSomethingWithResult();
+        LOGGER.log(Level.INFO, "workSomethingWithResult in progress, doing something else");
         resultString = null;
         try {
             resultString = result.get();

@@ -39,7 +39,7 @@ public class AsyncDemonstrator {
         startFutureTime = System.currentTimeMillis();
         LOGGER.log(Level.INFO, "Start working on work with result");
         try {
-            Thread.sleep(1000);
+            Thread.sleep(3000);
         } catch (InterruptedException ex) {
             Logger.getLogger(AsyncDemonstrator.class.getName()).log(Level.SEVERE, null, ex);
         }
