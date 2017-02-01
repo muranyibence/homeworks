@@ -1,0 +1,12 @@
+{
+    "username": "testUser",
+    "password": "testuserPass!",
+    "firstname": "User",
+    "lastname": "Testuser",
+    "address": "1111 Budapest Első út 1",
+    "phone": "+36305555555",
+    "email": "testuser@gmail.com",
+    "sex": "FEMALE",
+    "dateOfBirth": 148344735159,
+    "admin": false
+}
