@@ -5,7 +5,7 @@ import com.muranyibence.webshop.dto.ResultType;
 import com.muranyibence.webshop.exeption.DeviceNotExistInDBException;
 import com.muranyibence.webshop.exeption.NoPrivilegeException;
 import com.muranyibence.webshop.exeption.NotLoggedInException;
-import com.muranyibence.webshop.exeption.database.DeviceDB;
+import com.muranyibence.webshop.database.DeviceDB;
 import com.muranyibence.webshop.entities.DeviceEntity;
 import com.muranyibence.webshop.entities.UserEntity;
 

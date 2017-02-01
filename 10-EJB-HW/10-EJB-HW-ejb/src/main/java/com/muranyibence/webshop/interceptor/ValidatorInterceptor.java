@@ -1,7 +1,7 @@
 package com.muranyibence.webshop.interceptor;
 
 import com.muranyibence.webshop.exeption.ValidationException;
-import com.muranyibence.webshop.exeption.annotation.Validate;
+import com.muranyibence.webshop.annotation.Validate;
 import java.util.Optional;
 import java.util.Set;
 import javax.interceptor.AroundInvoke;

@@ -1,7 +1,7 @@
 package com.muranyibence.webshop.entities;
 
 import com.muranyibence.webshop.constraint.DeviceColor;
-import com.muranyibence.webshop.exeption.annotation.Validate;
+import com.muranyibence.webshop.annotation.Validate;
 import com.muranyibence.webshop.util.Color;
 import com.muranyibence.webshop.util.Manufacturer;
 import java.io.Serializable;

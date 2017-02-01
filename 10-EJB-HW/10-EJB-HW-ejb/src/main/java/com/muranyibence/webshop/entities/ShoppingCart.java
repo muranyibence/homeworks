@@ -1,6 +1,6 @@
 package com.muranyibence.webshop.entities;
 
-import com.muranyibence.webshop.exeption.database.DeviceDB;
+import com.muranyibence.webshop.database.DeviceDB;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;

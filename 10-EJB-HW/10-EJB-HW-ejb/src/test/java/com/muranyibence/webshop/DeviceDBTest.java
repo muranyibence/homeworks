@@ -2,7 +2,7 @@ package com.muranyibence.webshop;
 
 import com.muranyibence.webshop.exeption.DeviceAlreadyInDBException;
 import com.muranyibence.webshop.exeption.DeviceNotExistInDBException;
-import com.muranyibence.webshop.exeption.database.DeviceDB;
+import com.muranyibence.webshop.database.DeviceDB;
 import com.muranyibence.webshop.entities.DeviceEntity;
 import com.muranyibence.webshop.util.Manufacturer;
 import com.muranyibence.webshop.util.Color;

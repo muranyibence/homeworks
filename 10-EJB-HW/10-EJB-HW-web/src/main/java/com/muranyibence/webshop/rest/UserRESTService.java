@@ -5,7 +5,7 @@ import com.muranyibence.webshop.dto.ResultType;
 import com.muranyibence.webshop.exeption.NoPrivilegeException;
 import com.muranyibence.webshop.exeption.NotLoggedInException;
 import com.muranyibence.webshop.exeption.UserNotExistInDBException;
-import com.muranyibence.webshop.exeption.database.UserDB;
+import com.muranyibence.webshop.database.UserDB;
 import com.muranyibence.webshop.entities.UserEntity;
 
 import java.io.Serializable;

@@ -3,7 +3,7 @@ package com.muranyibence.webshop.entities;
 import com.muranyibence.webshop.constraint.Address;
 import com.muranyibence.webshop.constraint.DateOfBirthBeforeRegistrationDate;
 import com.muranyibence.webshop.constraint.FirstNameAndLastNameBothFilledOrNull;
-import com.muranyibence.webshop.exeption.annotation.Validate;
+import com.muranyibence.webshop.annotation.Validate;
 import com.muranyibence.webshop.util.Sex;
 import java.io.Serializable;
 import java.util.Date;

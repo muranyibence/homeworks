@@ -2,7 +2,7 @@ package com.muranyibence.webshop;
 
 import com.muranyibence.webshop.exeption.UserAlreadyInDBException;
 import com.muranyibence.webshop.exeption.UserNotExistInDBException;
-import com.muranyibence.webshop.exeption.database.UserDB;
+import com.muranyibence.webshop.database.UserDB;
 import com.muranyibence.webshop.entities.UserEntity;
 import com.muranyibence.webshop.util.Sex;
 import java.util.Calendar;

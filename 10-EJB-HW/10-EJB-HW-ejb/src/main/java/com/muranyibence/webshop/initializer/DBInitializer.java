@@ -3,8 +3,8 @@ package com.muranyibence.webshop.initializer;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.muranyibence.webshop.exeption.UserAlreadyInDBException;
-import com.muranyibence.webshop.exeption.database.DeviceDB;
-import com.muranyibence.webshop.exeption.database.UserDB;
+import com.muranyibence.webshop.database.DeviceDB;
+import com.muranyibence.webshop.database.UserDB;
 import com.muranyibence.webshop.entities.DeviceEntity;
 import com.muranyibence.webshop.entities.UserEntity;
 
