@@ -4,8 +4,6 @@ import com.muranyibence.jpa.exception.RepositoryException;
 import com.muranyibence.jpa.model.Address;
 import com.muranyibence.jpa.model.Gender;
 import com.muranyibence.jpa.model.Person;
-import com.muranyibence.jpa.repository.PersonCRUDRepository;
-import com.muranyibence.jpa.repository.PersonQueryRepository;
 import com.muranyibence.jpa.service.PersonCRUDService;
 import com.muranyibence.jpa.service.PersonQueryService;
 import java.util.Calendar;
