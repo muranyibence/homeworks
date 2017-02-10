@@ -6,6 +6,7 @@ import com.muranyibence.jpa.model.Address;
 import com.muranyibence.jpa.model.Person;
 import java.util.Date;
 import java.util.List;
+import javax.annotation.PreDestroy;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -31,7 +32,7 @@ public class PersonQueryRepository implements PersonQueryRepositoryInterface {
 
     @Override
     public List<Person> getPersonsByName(String firstName, String lastName) throws RepositoryException {
-        String selectQuery = "SELECT p.name FROM Person p WHERE p.first_name = :firstName AND p.last_name= :lastName";
+        String selectQuery = "SELECT p FROM Person p WHERE p.firstName = :firstName AND p.lastName= :lastName";
         TypedQuery<Person> query = entityManager.createQuery(selectQuery, Person.class);
         query.setParameter("firstName", firstName);
         query.setParameter("lastName", lastName);
@@ -56,7 +57,7 @@ public class PersonQueryRepository implements PersonQueryRepositoryInterface {
 
     @Override
     public void removePersonByName(String firstName, String lastName) throws RepositoryException {
-        String deleteQuery = "DELETE FROM Person p WHERE p.firstName LIKE :firstName AND p.lastName LIKE lastName";
+        String deleteQuery = "DELETE FROM Person p WHERE p.firstName = :firstName AND p.lastName= :lastName";
         Query query = entityManager.createQuery(deleteQuery);
         query.setParameter("firstName", firstName);
         query.setParameter("lastName", lastName);
@@ -68,13 +69,17 @@ public class PersonQueryRepository implements PersonQueryRepositoryInterface {
 
     @Override
     public void updateNullAddress(Address address) throws RepositoryException {
-        String updateQuery = "UPDATE Person p SET p.address = :newAddress WHERE p.address IS NULL";
-        Query query = entityManager.createQuery(updateQuery);
-        query.setParameter("newAddress", address);
-        EntityTransaction tx = entityManager.getTransaction();
-        tx.begin();
-        query.executeUpdate();
-        tx.commit();
+        String selectQuery = "SELECT p FROM Person p WHERE p.address IS NULL";
+        TypedQuery<Person> query = entityManager.createQuery(selectQuery, Person.class);
+        List<Person> persons = query.getResultList();
+        for (Person p : persons) {
+            EntityTransaction tx = entityManager.getTransaction();
+            tx.begin();
+            p.setAddress(address);
+            entityManager.merge(p);
+            tx.commit();
+
+        }
     }
 
     @Override
