@@ -1,0 +1,100 @@
+Actor:
+
+URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/actor
+Típus: POST
+Body:
+{
+	"firstName": "Tom",
+	"lastName" : "Cruise",
+	"nationality": "America"
+}
+
+URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/actor/{id}
+Típus: GET
+
+
+URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/actor
+Típus: PUT
+{
+  "firstName": "Brad",
+  "id": 1,
+  "lastName": "Pitt",
+  "nationality": "America"
+}
+
+URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/actor/{id}
+Típus: DELETE
+
+
+URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/actor/addmovie/{actorId}/{movieId}
+Típus: POST
+------------------------------------------------------------------------------------------
+Movie:
+
+URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/movie
+Típus: POST
+Body:
+{
+	"title": "Top Gun"
+}
+
+URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/movie/{id}
+Típus: GET
+
+URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/movie
+Típus: PUT
+{
+	"id":1,
+	"title": "RainMan"
+}
+
+URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/movie/{id}
+Típus: DELETE
+
+------------------------------------------------------------------------------------------
+Category:
+
+URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/category
+Típus: POST
+Body:
+{
+	"title": "Top Gun"
+}
+
+URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/category/{id}
+Típus: GET
+
+URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/category
+Típus: PUT
+{
+	"id":1,
+	"name": "Sci-fi"
+}
+
+URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/movie/{id}
+Típus: DELETE
+------------------------------------------------------------------------------------------
+Trailer:
+
+URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/trailer
+Típus: POST
+Body:
+{
+	"title": "Top Gun"
+}
+
+URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/trailer/{id}
+Típus: GET
+
+URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/trailer
+Típus: PUT
+{
+	"id":1,
+	"url": "https://www.youtube.com/watch?v=KKC3W0awjm0"
+	"videoType":"YOUTUBE",
+	"title": Rain Man Official Trailer
+}
+
+URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/trailer/{id}
+Típus: DELETE
+
