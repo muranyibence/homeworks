@@ -7,8 +7,3 @@ release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
-*.jpg
-*.png
-*.gif
-nb-configuration.xml
-*.jar
