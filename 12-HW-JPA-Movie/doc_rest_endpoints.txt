@@ -1,3 +1,8 @@
+Használat: Minden entitáshoz fel vannak véve a GET,POST,PUT és DELETE REST endpointok. Ezen felül vannak POST típusú endpointok, ahol hozzájuk tudjuk rendelni valamelyik másik entitást. (pl. Moviehoz Actort)
+Ezen felül van egy Query resource, melyben a kért JPQL queryk vannak megvalósítva.
+
+
+------------------------------------------------------------------------------------------
 Actor:
 
 URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/actor
@@ -28,6 +33,8 @@ Típus: DELETE
 
 URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/actor/addmovie/{actorId}/{movieId}
 Típus: POST
+
+
 ------------------------------------------------------------------------------------------
 Movie:
 
@@ -35,7 +42,7 @@ URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/movie
 Típus: POST
 Body:
 {
-	"title": "Top Gun"
+	"title": "Oblivion"
 }
 
 URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/movie/{id}
@@ -51,6 +58,14 @@ Típus: PUT
 URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/movie/{id}
 Típus: DELETE
 
+URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/actor/addactor/{actorId}/{movieId}
+Típus: POST
+
+URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/actor/addcategory/{movieId}/{categoryId}
+Típus: POST
+
+URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/actor/addtrailer/{movieId}/{trailerId}
+Típus: POST
 ------------------------------------------------------------------------------------------
 Category:
 
@@ -58,7 +73,7 @@ URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/category
 Típus: POST
 Body:
 {
-	"title": "Top Gun"
+	"name": "Action"
 }
 
 URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/category/{id}
@@ -71,8 +86,12 @@ Típus: PUT
 	"name": "Sci-fi"
 }
 
-URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/movie/{id}
+URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/category/{id}
 Típus: DELETE
+
+http://localhost:8080/12-HW-JPA-Movie-web/rest/category/addmovie/{categoryId}/{movieId}")
+Typus: POST
+
 ------------------------------------------------------------------------------------------
 Trailer:
 
@@ -98,3 +117,32 @@ Típus: PUT
 URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/trailer/{id}
 Típus: DELETE
 
+URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/trailer/addmovie/{trailerId}/{movieId}
+Típus: POST
+
+------------------------------------------------------------------------------------------
+Queryk:
+
+URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/query/getmoviebycategory/{categoryId}
+Típus: GET
+
+URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/query/getmoviebytitle/{title}
+Típus: GET
+
+URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/query/getmoviebycategoryandtitle/category/{categoryId}/title/{title}
+Típus: GET
+
+URL: http://localhost:8080/12-HW-JPA-Movie-web/rest/query/getactorbyname/{firstname}/lastname/{lastname}
+Típus: GET
+
+URL:http://localhost:8080/12-HW-JPA-Movie-web/rest/query/getactorbymovieid/{movieId}
+Típus: GET
+
+URL:http://localhost:8080/12-HW-JPA-Movie-web/rest/query/getactorbynameandmovie/firstname/{firstname}/lastname/{lastname}/movie/{movieId}
+Típus: GET
+
+URL:http://localhost:8080/12-HW-JPA-Movie-web/rest/query/getactorbynatinoality/{nationality}
+Típus: GET
+
+URL:http://localhost:8080/12-HW-JPA-Movie-web/rest/query/gettrailerbymovieid/{movieId}
+Typus:GET
